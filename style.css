@@ -1,0 +1,9 @@
+canvas {
+   background-image: linear-gradient(purple,pink,rgb(31, 31, 109));
+  
+}
+
+body {
+    margin: 0 auto;
+    overflow: hidden;
+}

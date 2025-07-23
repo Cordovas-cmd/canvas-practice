@@ -2,8 +2,16 @@ const canvas = document.getElementById('canvas');
 
 const ctx = canvas.getContext('2d');
 
-ctx.moveTo(0,0);
 
-ctx.lineTo(100, 500);
+var player = new Image();
 
-ctx.stroke();
+player.src="./sprites/Illidian-Idle(3).png"
+
+
+var x = 0;
+
+var y = 10;
+player.onload = function() {
+    ctx.drawImage(player, x, y)
+}
+;
