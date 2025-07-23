@@ -14,7 +14,9 @@ var y = 10;
 
 var key, keyState = 0;
 player.onload = function() {
-    ctx.drawImage(player, x, y)
+    ctx.drawImage(player, x, y);
+
+    ctx.fillRect(0, 0, 1000, 1000);
 };
 
 document.onkeydown = function(e) {
@@ -24,8 +26,18 @@ document.onkeydown = function(e) {
     document.onkeyup = function(e) {
     keyState = "keyup";
 }
-setInterval(function () {
 
+var obstacle = {
+    x: 300,
+    y: 0,
+    width: 30,
+    height: 100,
+}
+
+
+
+setInterval(function () {
+    
     if(keyState === "keyup"){
         return;
     }
@@ -44,7 +56,12 @@ if(key === "d") {
 
 
 ctx.clearRect(0, 0, 2000, 2000);
-ctx.drawImage(player, x, y)
+ctx.drawImage(player, x, y);
+
+
+ctx.fillStyle = "blue";
+obstacle.x -= 1;
+ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
 
 }, 5);
 
