@@ -28,6 +28,13 @@ document.onkeyup = function (e) {
     keyState = "keyup";
 }
 
+
+// RNG function for obstacle positions.
+
+function chooseRandom(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
 // single obstacle object
 // var obstacle = {
 //     x: 300,
@@ -39,28 +46,29 @@ document.onkeyup = function (e) {
 // array of obstacle objects to generate multiple with varying properties
 var obstacles = [
     {
-        x: 800,
-        y: 0,
+        // if I want a random value here I can use something like this: Math.random() * (1500 - 500) + 500 (maximum - minimum) + minimum.
+        x: chooseRandom(100, 1000),
+        y: chooseRandom(0, 500),
         width: 30,
-        height: 200,
+        height: chooseRandom(100, 300),
     },
     {
-        x: 400,
-        y: 0,
+        x: chooseRandom(100, 1000),
+        y: chooseRandom(0, 500),
         width: 30,
-        height: 100,
+        height: chooseRandom(100, 300),
     },
     {
-        x: 500,
-        y: 180,
+        x: chooseRandom(100, 1000),
+        y: chooseRandom(0, 500),
         width: 30,
-        height: 300,
+        height: chooseRandom(100, 300),
     },
     {
-        x: 600,
-        y: 90,
+        x: chooseRandom(100, 1000),
+        y: chooseRandom(0, 500),
         width: 30,
-        height: 290,
+        height: chooseRandom(100, 300),
     },
 ]
 
@@ -90,6 +98,7 @@ setInterval(function () {
 
 
 
+    // for loop for creating multiple rectangles using the array of objects above.
     for (var i = 0; i < obstacles.length; i++) {
         const obstacle = obstacles[i];
 
